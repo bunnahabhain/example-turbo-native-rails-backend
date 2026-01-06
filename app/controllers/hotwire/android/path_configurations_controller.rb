@@ -7,12 +7,12 @@ class Hotwire::Android::PathConfigurationsController < ApplicationController
           {
             title: "Home",
             path: root_path,
-            image: "home"
+            icon: "home"
           },
           {
             title: "Posts",
             path: posts_path,
-            image_url: "newspaper"
+            icon: "newspaper"
           }
         ].to_json
       },
@@ -21,15 +21,15 @@ class Hotwire::Android::PathConfigurationsController < ApplicationController
           patterns: [".*"],
           properties: {
             context: "default",
-            uri: "turbo://fragment/web",
-            fallback_uri: "turbo://fragment/web",
+            uri: "hotwire://fragment/web",
+            fallback_uri: "hotwire://fragment/web",
             pull_to_refresh_enabled: true
           }
         },
         {
           patterns: ["^$", "^/$"],
           properties: {
-            uri: "turbo://fragment/web/home",
+            uri: "hotwire://fragment/web/home",
             presentation: "replace_root"
           }
         },
@@ -37,14 +37,14 @@ class Hotwire::Android::PathConfigurationsController < ApplicationController
           patterns: ["/new$", "/edit$"],
           properties: {
             context: "modal",
-            uri: "turbo://fragment/web/modal/sheet",
+            uri: "hotwire://fragment/web/modal/sheet",
             pull_to_refresh_enabled: false
           }
         },
         {
           patterns: [new_user_session_path],
           properties: {
-            uri: "turbo://fragment/users/sign_in",
+            uri: "hotwire://fragment/users/sign_in",
             context: "modal"
           }
         }
